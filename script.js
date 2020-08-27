@@ -1,7 +1,7 @@
-"use strict"
+// "use strict"
 
 
-// TASK 1 =============================================
+// // TASK 1 =============================================
 let userName = prompt('Enter your name please');
 let userSurname = prompt('Enter your Surname please');
 let userAge = prompt('Enter your age please');
@@ -9,27 +9,27 @@ let userMood = prompt('Enter your mood please');
 
 let div = document.createElement('div');
 div.className = 'user';
-div.innerHTML = '';
+div.innerText = '';
 document.body.append(div);
 
 let span = document.createElement('span');
 span.className = 'userName';
-span.innerHTML = userName;
+span.innerText = userName;
 document.querySelector('div.user').append(span);
 
 let spanLast = document.createElement('span');
 spanLast.className = 'userSurname';
-spanLast.innerHTML = userSurname;
+spanLast.innerText = userSurname;
 document.querySelector('div.user').prepend(spanLast);
 
 let pAge = document.createElement('p');
 pAge.className = 'userAge';
-pAge.innerHTML = userAge;
+pAge.innerText = userAge;
 document.querySelector('div.user').append(pAge);
 
 let p = document.createElement('p');
 p.className = 'userMood';
-p.innerHTML = userMood;
+p.innerText = userMood;
 document.querySelector('div.user').append(p);
 
 
@@ -65,20 +65,21 @@ let getQuantityTags = {
 };
 console.log(getQuantityTags);
 
-// TASK 3 ============================================
+//TASK 3 ============================================
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
+
 
 function changeColor() {
 
     let lengthtOrderList = document.querySelectorAll('li').length;
 
-    function getRandomInt(max) {
-        return Math.floor(Math.random() * Math.floor(max));
-    }
-
     let randomNumber = getRandomInt(lengthtOrderList);
 
     let elem = document.querySelectorAll('li')[randomNumber];
-    elem.style.background = 'red';
+    elem.style.background = '#' + (Math.random().toString(16) + '000000').substring(2, 8).toUpperCase();
     setTimeout(() => elem.style.background = '', 1000);
 }
 changeColor();
